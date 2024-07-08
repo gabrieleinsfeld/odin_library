@@ -29,9 +29,27 @@ function displayInitial(array){
         const element = array[index];
         const book = document.createElement('div')
         book.setAttribute('class', 'book')
+        book.setAttribute('id', `${index}`)
         bookContainer.appendChild(book)
+        displayInfo(element, book)
     }
 
+
+}
+
+function displayInfo(element, book){
+    const h1 = document.createElement('h1')
+    const h3 = document.createElement('h3')
+    const p = document.createElement('p')
+    const btn = document.createElement('button')
+    h1.innerText = `Title: ${element.title}`
+    h3.innerText = `Author: ${element.author}`
+    p.innerText = `Author: ${element.pages}`
+    btn.innerText = `Author: ${element.read}`
+    book.appendChild(h1)
+    book.appendChild(h3)
+    book.appendChild(p)
+    book.appendChild(btn)
 }
 
 

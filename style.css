@@ -2,3 +2,17 @@ body{
     margin: 0px;
     padding: 0px;
 }
+
+#books{
+    display: grid;
+    background-color: beige;
+    grid-template-columns: 150px 150px 150px;
+
+    gap: 10px;
+}
+.book{
+    height: 300px;
+    width: 150px;
+    background-color: aqua;
+
+}
