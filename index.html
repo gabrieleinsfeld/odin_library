@@ -8,7 +8,17 @@
 </head>
 <body>
     <div id="books">
-        
+        <div class="book">
+            <button id="open"></button>
+            <dialog close>
+            <form method="dialog">
+                <input id="title" placeholder="Title" name="title" type="text">
+                <input id="author" placeholder="Author" name="author" type="text">
+                <input id="pages" placeholder="Pages" name="pages" type="number">
+                <label>Read</label><input id="read" value="Read" type="checkbox">
+              <button id="close">OK</button>
+            </form>
+          </dialog>
     </div>
     <script src="script.js"></script>
 </body>

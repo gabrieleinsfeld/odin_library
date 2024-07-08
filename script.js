@@ -2,16 +2,16 @@
 const book1 = new Book("Harry", "Demi", "55", true)
 const book2 = new Book("Harry", "Demi", "56", true)
 const book3 = new Book("Harry", "Demi", "57", true)
-const book4 = new Book("Harry", "Demi", "58", true)
-const book5 = new Book("Harry", "Demi", "58", true)
-const book6 = new Book("Harry", "Demi", "57", true)
-const book7 = new Book("Harry", "Demi", "58", true)
-const book8 = new Book("Harry", "Demi", "58", true)
-const book9 = new Book("Harry", "Demi", "58", true)
-const book10 = new Book("Harry", "Demi", "58", true)
 
+
+
+
+const titleInput = document.getElementById('title')
+const authorInput = document.getElementById('author')
+const pagesInput = document.getElementById('pages')
+const readInput = document.getElementById('read')
 const bookContainer = document.getElementById('books')
-let myLibrary = [book1, book2, book3, book4, book5, book6, book7, book8, book9, book10]
+let myLibrary = [book1, book2, book3]
 
 function Book(title, author, pages, read=false){
     this.title = title 
@@ -25,11 +25,12 @@ function Book(title, author, pages, read=false){
 
 
 function displayInitial(array){
+
     for (let index = 0; index < array.length; index++) {
         const element = array[index];
         const book = document.createElement('div')
         book.setAttribute('class', 'book')
-        book.setAttribute('id', `${index}`)
+        book.setAttribute('id', `book${index}`)
         bookContainer.appendChild(book)
         displayInfo(element, book)
     }
@@ -42,10 +43,18 @@ function displayInfo(element, book){
     const h3 = document.createElement('h3')
     const p = document.createElement('p')
     const btn = document.createElement('button')
+    h1.setAttribute('class', 'title')
+    h3.setAttribute('class', 'author')
+    p.setAttribute('class', 'spine')
     h1.innerText = `Title: ${element.title}`
     h3.innerText = `Author: ${element.author}`
-    p.innerText = `Author: ${element.pages}`
+    p.innerText = `Pages: ${element.pages}`
     btn.innerText = `Author: ${element.read}`
+    btn.addEventListener('click', ()=>{
+        const book = document.getElementById(btn.parentElement.getAttribute('id'))
+        book.remove()
+        console.log(btn.parentElement.getAttribute('id'))
+    })
     book.appendChild(h1)
     book.appendChild(h3)
     book.appendChild(p)
@@ -53,6 +62,36 @@ function displayInfo(element, book){
 }
 
 
+function addBook(){
+    newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value)
+    myLibrary.push(newBook)
+    const element = myLibrary[myLibrary.length -1];
+    const book = document.createElement('div')
+    book.setAttribute('class', 'book')
+    book.setAttribute('id', `${myLibrary.length}`)
+    bookContainer.appendChild(book)
+    displayInfo(element, book)
+}
+
+
+
+const dialog = document.querySelector("dialog");
+const showButton = document.getElementById("open");
+const closeButton = document.getElementById("close");
+
+// "Show the dialog" button opens the dialog modally
+showButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+// "Close" button closes the dialog
+closeButton.addEventListener("click", () => {
+    addBook()
+    dialog.close();
+});
 
 displayInitial(myLibrary)
 console.log(book1.showInfo())
+
+
+console.log(myLibrary[myLibrary.length -1])

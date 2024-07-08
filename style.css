@@ -4,15 +4,38 @@ body{
 }
 
 #books{
+    margin: auto;
     display: grid;
+    width: 100%;
     background-color: beige;
-    grid-template-columns: 150px 150px 150px;
-
+    grid-template-columns:30vw 30vw 30vw;
+    justify-content: center;
+    padding: 50px;
     gap: 10px;
 }
-.book{
+.book {
+    width: min(20vw, 200px);
     height: 300px;
-    width: 150px;
-    background-color: aqua;
-
+    background: linear-gradient(135deg, #1e3c72, #4175ce);
+    border: 2px solid #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
 }
+.book .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.book .author {
+    font-size: 18px;
+    margin-bottom: auto;
+}
+
+
+
