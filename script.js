@@ -43,22 +43,28 @@ function displayInfo(element, book){
     const h3 = document.createElement('h3')
     const p = document.createElement('p')
     const btn = document.createElement('button')
+    const label = document.createElement('label')
+    const read = document.createElement('input')
+    read.setAttribute('type', 'checkbox')
+    label.textContent = 'Read'
     h1.setAttribute('class', 'title')
     h3.setAttribute('class', 'author')
     p.setAttribute('class', 'spine')
     h1.innerText = `Title: ${element.title}`
     h3.innerText = `Author: ${element.author}`
     p.innerText = `Pages: ${element.pages}`
-    btn.innerText = `Author: ${element.read}`
+    btn.innerText = `Delete Book`
     btn.addEventListener('click', ()=>{
         const book = document.getElementById(btn.parentElement.getAttribute('id'))
         book.remove()
         console.log(btn.parentElement.getAttribute('id'))
     })
+    label.appendChild(read)
     book.appendChild(h1)
     book.appendChild(h3)
     book.appendChild(p)
     book.appendChild(btn)
+    book.appendChild(label)
 }
 
 
@@ -73,8 +79,11 @@ function addBook(){
     displayInfo(element, book)
 }
 
+displayInitial(myLibrary)
 
-
+// ******************
+// Dialog functioning 
+// ******************
 const dialog = document.querySelector("dialog");
 const showButton = document.getElementById("open");
 const closeButton = document.getElementById("close");
@@ -90,8 +99,3 @@ closeButton.addEventListener("click", () => {
     dialog.close();
 });
 
-displayInitial(myLibrary)
-console.log(book1.showInfo())
-
-
-console.log(myLibrary[myLibrary.length -1])
