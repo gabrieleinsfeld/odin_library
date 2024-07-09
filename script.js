@@ -1,7 +1,7 @@
 
-const book1 = new Book("Harry", "Demi", "55", true)
-const book2 = new Book("Harry", "Demi", "56", true)
-const book3 = new Book("Harry", "Demi", "57", true)
+const book1 = new Book("To Kill a Mockingbird", "Harper Lee", "281", true)
+const book2 = new Book("1984", "George Orwell", "328", true)
+const book3 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "180", true)
 
 
 
@@ -62,16 +62,15 @@ function displayInfo(element, book){
     label.appendChild(read)
     book.appendChild(h1)
     book.appendChild(h3)
+    
     book.appendChild(p)
-    book.appendChild(btn)
+    
     book.appendChild(label)
+    book.appendChild(btn)
 }
 
-document.getElementById('bookForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    addBook();
-    dialog.close();
-});
+
+
 
 
 function addBook(){
@@ -87,6 +86,7 @@ function addBook(){
 
 displayInitial(myLibrary)
 
+
 // ******************
 // Dialog functioning 
 // ******************
@@ -100,3 +100,8 @@ showButton.addEventListener("click", () => {
 });
 
 
+document.getElementById('bookForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    addBook();
+    dialog.close();
+});
