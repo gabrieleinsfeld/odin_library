@@ -67,6 +67,12 @@ function displayInfo(element, book){
     book.appendChild(label)
 }
 
+document.getElementById('bookForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    addBook();
+    dialog.close();
+});
+
 
 function addBook(){
     newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value)
@@ -93,9 +99,4 @@ showButton.addEventListener("click", () => {
   dialog.showModal();
 });
 
-// "Close" button closes the dialog
-closeButton.addEventListener("click", () => {
-    addBook()
-    dialog.close();
-});
 
